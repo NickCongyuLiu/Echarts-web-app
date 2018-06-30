@@ -122,9 +122,9 @@
                                     label:true,
                                     color:'#fff',
                                     data:[
-                                        // {type:'max',name:'最大值'},
+                                        {type:'max',name:'data1最大值'},
                                         // {type:'min',name:'最小值'},
-                                        // {type : 'average', name: '平均值'}
+                                        {type : 'average', name: 'data2平均值'}
                                     ]
                                 }
                             },
@@ -149,17 +149,24 @@
                                 //         color:'darkred'
                                 //     }
                                 // },
-                                // markPoint:{
-                                //     data:[
-                                //         {type:'max',name:'sim_not_inserted最大值'},
+                                markPoint:{
+                                    data:[
+                                        {type:'max',name:'data2最大值'},
+                                        {type : 'average', name: 'data2平均值'}
+
                                 //         {type:'min',name:'sim_not_inserted最小值'}
-                                //     ]
-                                // }
+                                    ]
+                                }
                             },
                             {
                                 "name": "data3",
                                 "type": "line",
                                 "data": [],
+                                lineStyle:{
+                                    normal:{
+                                        color:'green'
+                                    }
+                                },
                             },
                             {
                                 "name": "data4",
@@ -262,10 +269,12 @@
         option.series[2].data=[];
         option.series[3].data=[];
         option.series[4].data=[];
+        option.legend[0].data=[];
         var name = '';
         for(var i =0;i<number_lines;i++){
             option.series[i].data = speed_list_raw[i];
-            option.legend[0].data.push('data'+(i+1));
+            option.legend[0].data.push(objs[i].truckno);
+            option.series[i].name = objs[i].truckno;
             name = name +objs[i].truckno+' VS ';
         }
         name = name.substring(0,name.length-3);
