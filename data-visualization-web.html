@@ -172,6 +172,11 @@
                                 "name": "data4",
                                 "type": "line",
                                 "data": [],
+                                lineStyle:{
+                                    normal:{
+                                        color:'blue'
+                                    }
+                                },
                             },
                             {
                                 "name": "data5",
@@ -300,7 +305,7 @@
             if(files.length==0){
                 alert('文件不能为空');
                 return;
-            }else if(files.length>=5){
+            }else if(files.length>5){
                 alert('只支持少于5个文件');
                 return;
             }
